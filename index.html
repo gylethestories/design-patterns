@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import { Context, vipPrice, oldPrice, Price } from "./strategy.js";
+
+      let context = new Context();
+      let vip = new vipPrice();
+      context.set("vip客户", vip, 200);
+      context.getResult(); // vip客户的结账价为：100
+      let old = new oldPrice();
+      context.set("老客户", old, 200);
+      context.getResult(); // 老客户的结账价为: 60
+      let price = new Price();
+      context.set("普通客户", price, 200);
+      context.getResult(); // 普通客户的结账价为: 200
+    </script>
+  </body>
+</html>
